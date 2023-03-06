@@ -59,6 +59,14 @@ function displayBooks() {
   }
 }
 
+function openForm() {
+    document.getElementById('form-popup').style.display = 'block';
+}
+
+function closeForm() {
+    document.getElementById('form-popup').style.display = 'none';
+}
+
 let myLibrary = [];
 myLibrary.push(
   new Book("Beyond Good and Evil", "Friedrich Nietzsche", 217, true)
