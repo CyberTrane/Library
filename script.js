@@ -14,22 +14,27 @@ Book.prototype.info = function () {
 };
 
 function addBookToLibrary() {
-  const title = prompt("Enter book title: ");
-  const author = prompt("Enter book author: ");
-  const pages = prompt("Enter number of pages: ");
-  const readCheck = prompt("Have you read this book? (y/n): ");
+  const title = document.getElementById('title').value;
+  const author = document.getElementById('author').value;
+  const pages = document.getElementById('pages').value;
+
   let read;
-  if (readCheck === "y") {
+  const selection = document.querySelector('input[name="readStatus"]:checked');
+  if (selection === null) {
+    read = false;
+  } else if (selection.id === 'read') {
     read = true;
   } else {
     read = false;
   }
 
   myLibrary.push(new Book(title, author, pages, read));
+  displayBooks();
 }
 
 function displayBooks() {
   const main = document.querySelector(".main");
+  main.innerHTML = '';
   for (let i = 0; i < myLibrary.length; i++) {
     const card = document.createElement("div");
     card.classList.add("card");
@@ -60,7 +65,7 @@ function displayBooks() {
 }
 
 function openForm() {
-    document.getElementById('form-popup').style.display = 'block';
+    document.getElementById('form-popup').style.display = 'flex';
 }
 
 function closeForm() {
@@ -75,4 +80,5 @@ myLibrary.push(new Book("Animal Farm", "George Orwell", 392, false));
 
 displayBooks();
 
-const newBookBtn = document.querySelector(".newBook");
+const formSubmitBtn = document.querySelector('.form-submitBtn');
+formSubmitBtn.addEventListener('click', addBookToLibrary);
