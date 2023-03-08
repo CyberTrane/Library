@@ -13,7 +13,7 @@ Book.prototype.info = function () {
   return `${this.title} by ${this.author}, ${this.pages} pages, ${this.read}`;
 };
 
-function addBookToLibrary() {
+function addBookToLibrary(e) {
   const title = document.getElementById('title').value;
   const author = document.getElementById('author').value;
   const pages = document.getElementById('pages').value;
@@ -30,6 +30,8 @@ function addBookToLibrary() {
 
   myLibrary.push(new Book(title, author, pages, read));
   displayBooks();
+  closeForm();
+  e.preventDefault();
 }
 
 function displayBooks() {
@@ -38,6 +40,7 @@ function displayBooks() {
   for (let i = 0; i < myLibrary.length; i++) {
     const card = document.createElement("div");
     card.classList.add("card");
+    card.dataset.index = i;
 
     const title = document.createElement("h3");
     title.classList.add("title");
@@ -55,13 +58,29 @@ function displayBooks() {
     read.classList.add("read");
     read.innerText = myLibrary[i].read;
 
+    const delBtn = document.createElement('button');
+    delBtn.classList.add('del-btn');
+    delBtn.innerText = 'Delete Book';
+    delBtn.dataset.index = i;
+
+    delBtn.addEventListener('click', removeBook);
+
     card.appendChild(title);
     card.appendChild(author);
     card.appendChild(pages);
     card.appendChild(read);
+    card.appendChild(delBtn);
 
     main.appendChild(card);
   }
+}
+
+function removeBook(e) {
+  const index = this.dataset.index;
+  const main = document.querySelector('.main');
+  const card = document.querySelector(`div[data-index='${index}']`);
+  main.removeChild(card);
+  myLibrary.pop(index);
 }
 
 function openForm() {
@@ -70,6 +89,7 @@ function openForm() {
 
 function closeForm() {
     document.getElementById('form-popup').style.display = 'none';
+    document.querySelector('.form-container').reset();
 }
 
 let myLibrary = [];
