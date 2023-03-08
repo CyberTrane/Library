@@ -1,7 +1,7 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Times New Roman', Times, serif ;
 }
 
 body {
@@ -10,6 +10,27 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 16px;
+}
+
+.header {
+  width: 100%;
+  height: 15%;
+  background-color: #365314;
+  color: #f7fee7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+}
+
+.newBook {
+  padding: 8px 16px;
+  background-color: #a3e635;
+  color: #365314;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
 }
 
 .main {
