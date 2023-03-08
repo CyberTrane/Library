@@ -56,7 +56,7 @@ function displayBooks() {
 
     const read = document.createElement("p");
     read.classList.add("read");
-    read.innerText = myLibrary[i].read;
+    read.innerText = 'Status: ' + myLibrary[i].read;
     read.dataset.index = i;
 
     const delBtn = document.createElement('button');
@@ -101,7 +101,7 @@ function changeReadStatus(e) {
   } else {
     myLibrary[index].read = 'read';
   }
-  read.innerText = myLibrary[index].read;
+  displayBooks();
 }
 
 function openForm() {
