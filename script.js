@@ -57,6 +57,7 @@ function displayBooks() {
     const read = document.createElement("p");
     read.classList.add("read");
     read.innerText = myLibrary[i].read;
+    read.dataset.index = i;
 
     const delBtn = document.createElement('button');
     delBtn.classList.add('del-btn');
@@ -65,11 +66,19 @@ function displayBooks() {
 
     delBtn.addEventListener('click', removeBook);
 
+    const readBtn = document.createElement('button');
+    readBtn.classList.add('read-btn');
+    readBtn.innerText = 'Change Read Status';
+    readBtn.dataset.index = i;
+
+    readBtn.addEventListener('click', changeReadStatus);
+
     card.appendChild(title);
     card.appendChild(author);
     card.appendChild(pages);
     card.appendChild(read);
     card.appendChild(delBtn);
+    card.appendChild(readBtn);
 
     main.appendChild(card);
   }
@@ -81,6 +90,18 @@ function removeBook(e) {
   const card = document.querySelector(`div[data-index='${index}']`);
   main.removeChild(card);
   myLibrary.pop(index);
+  displayBooks();
+}
+
+function changeReadStatus(e) {
+  const index = this.dataset.index;
+  const read = document.querySelector(`p[data-index='${index}']`);
+  if (myLibrary[index].read === 'read') {
+    myLibrary[index].read = 'not read yet';
+  } else {
+    myLibrary[index].read = 'read';
+  }
+  read.innerText = myLibrary[index].read;
 }
 
 function openForm() {
