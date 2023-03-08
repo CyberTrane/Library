@@ -22,7 +22,7 @@ body {
   justify-content: center;
   align-items: center;
   gap: 24px;
-}
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;}
 
 .header h1 {
   font-size: 36px;
@@ -42,17 +42,24 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 24px;
+  margin: 36px;
 }
 
 .card {
-  border: 1px solid black;
-  padding: 12px;
+  border: 8px double black;
+  border-radius: 12px;
+  padding: 16px;
   background-color: #4d7c0f;
   color: #f7fee7;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  box-shadow: rgb(0 0 0 / 16%) 0px 3px 6px, rgb(0 0 0 / 23%) 0px 3px 6px;
 }
 
-.card h3 {
-  font-size: 24px;
+.card h3, .form-container h2 {
+  font-size: 26px;
 }
 
 .card button {
@@ -65,17 +72,89 @@ body {
   border-radius: 8px;
 }
 
+.card p, .form-container label {
+  font-size: 18px;
+}
+
+.card-buttons {
+  display: flex;
+  gap: 16px;
+}
+
 #form-popup {
   position: fixed;
   height: 100vh;
+  width: 100%;
   align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 .form-container {
-  border: 1px solid black;
-  padding: 8px;
+  border: 8px double black;
+  border-radius: 12px;
+  padding: 12px;
+  background-color: #bef264;
 }
 
-ul {
+.form-container h2 {
+  margin-bottom: 12px;
+}
+
+.form-buttons {
+  margin-top: 12px;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.form-buttons button {
+  padding: 8px 16px;
+  background-color: #365314;
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+}
+
+.form-container fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 12px;
+}
+
+.form-container ul {
   list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+li > input {
+  border: 1px solid black;
+  border-radius: 4px;
+  height: 20px;
+  background-color: #e0e0e0;
+}
+
+li > input:focus {
+  outline: 2px solid #365314;
+  background-color: #fff;
+  border: 1px solid transparent;
+}
+
+button {
+  transition: 0.2s;
+  box-shadow: rgb(0 0 0 / 16%) 0px 3px 6px, rgb(0 0 0 / 23%) 0px 3px 6px;
+}
+
+button:hover {
+  transform: scale(1.05);
+  background-color: #bef264;
+}
+
+.form-buttons button:hover {
+  background-color: #3f6212;
 }

@@ -18,7 +18,7 @@
     </div>
     <div id="form-popup" style="display: none;">
       <form action="" class="form-container">
-        <h2>New Book</h2>
+        <h2>Add Book</h2>
         <ul>
           <li>
             <label for="title">Title: </label>
@@ -30,7 +30,7 @@
           </li>
           <li>
             <label for="pages">Number of Pages: </label>
-            <input type="text" name="pages" id="pages" />
+            <input type="number" name="pages" id="pages" />
           </li>
           <li>
             <fieldset>
@@ -46,8 +46,10 @@
             </fieldset>
           </li>
         </ul>
-        <button type="submit" class="form-submitBtn">Submit</button>
-        <button type="button" class="form-cancelBtn" onclick="closeForm()">Cancel</button>
+        <div class="form-buttons">
+          <button type="submit" class="form-submitBtn">Submit</button>
+          <button type="button" class="form-cancelBtn" onclick="closeForm()">Cancel</button>
+        </div>
       </form>
     </div>
     <div class="main"></div>

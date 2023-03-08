@@ -59,6 +59,9 @@ function displayBooks() {
     read.innerText = 'Status: ' + myLibrary[i].read;
     read.dataset.index = i;
 
+    const btns = document.createElement('div');
+    btns.classList.add('card-buttons');
+
     const delBtn = document.createElement('button');
     delBtn.classList.add('del-btn');
     delBtn.innerText = 'Delete Book';
@@ -77,8 +80,10 @@ function displayBooks() {
     card.appendChild(author);
     card.appendChild(pages);
     card.appendChild(read);
-    card.appendChild(delBtn);
-    card.appendChild(readBtn);
+
+    btns.appendChild(delBtn);
+    btns.appendChild(readBtn);
+    card.appendChild(btns);
 
     main.appendChild(card);
   }
