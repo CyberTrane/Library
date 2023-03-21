@@ -94,7 +94,7 @@ function removeBook(e) {
   const main = document.querySelector('.main');
   const card = document.querySelector(`div[data-index='${index}']`);
   main.removeChild(card);
-  myLibrary.pop(index);
+  myLibrary.splice(index, 1);
   displayBooks();
 }
 
